@@ -49,6 +49,7 @@ $ npm install --save body-parser
 Una vez instalado, podemos empezar a escribir nuestro servidor. En un archivo `index.js`, escribimos lo siguiente:
 
 ```js
+var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 
@@ -330,7 +331,7 @@ app.post('/penguins', function(req, res) {
     penguin.save(function(error, savedPenguin) {
         if (error) return res.status(500).send(error);
 
-        res.json(savedPenguin);
+        res.status(201).json(savedPenguin);
     });
 });
 ```
